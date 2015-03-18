@@ -2,13 +2,13 @@
 
 /* appearance */
 /* static const char font[]            = "-gohu-*-medium-*-*-*-14-*-*-*-*-*-*-*"; */
-static const char font[]            = "Monaco 9";
+static const char font[]            = "Ubuntu Mono 12";
 static const char normbordercolor[] = "#000000";
 static const char normbgcolor[]     = "#000000";
-static const char normfgcolor[]     = "#666666";
+static const char normfgcolor[]     = "#999999";
 static const char selbordercolor[]  = "#000000";
 static const char selbgcolor[]      = "#000000";
-static const char selfgcolor[]      = "#aaaaaa";
+static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -51,7 +51,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "uxterm", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 
 static Key keys[] = {
