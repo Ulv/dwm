@@ -2,14 +2,14 @@
 
 /* appearance */
 /* static const char font[]            = "-gohu-*-medium-*-*-*-14-*-*-*-*-*-*-*"; */
-static const char font[]            = "Ubuntu 8";
+static const char font[]            = "Monaco 9";
 static const char normbordercolor[] = "#000000";
 static const char normbgcolor[]     = "#000000";
 static const char normfgcolor[]     = "#666666";
 static const char selbordercolor[]  = "#000000";
 static const char selbgcolor[]      = "#000000";
 static const char selfgcolor[]      = "#aaaaaa";
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
@@ -37,7 +37,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
