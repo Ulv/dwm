@@ -2,13 +2,15 @@
 
 /* appearance */
 /* static const char font[]            = "-gohu-*-medium-*-*-*-14-*-*-*-*-*-*-*"; */
-static const char font[]            = "Ubuntu Mono 12";
+static const char font[]            = "Cousine 8";
 static const char normbordercolor[] = "#000000";
 static const char normbgcolor[]     = "#000000";
-static const char normfgcolor[]     = "#999999";
+static const char normfgcolor[]     = "#dddddd";
 static const char selbordercolor[]  = "#000000";
 static const char selbgcolor[]      = "#000000";
-static const char selfgcolor[]      = "#eeeeee";
+static const char selfgcolor[]      = "#ffffff";
+
+
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -18,7 +20,7 @@ static const unsigned int systrayspacing = 2;
 static const Bool showsystray       = True;
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "www", "emacs/vim", "tmux", "misc1", "misc2", "misc3", "music", "read", "skype" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -51,7 +53,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
+static const char *termcmd[]  = { "gnome-terminal", "-e", "tmux", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 
 static Key keys[] = {
