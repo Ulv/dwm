@@ -2,7 +2,7 @@
 
 /* appearance */
 /* static const char font[]            = "-gohu-*-medium-*-*-*-14-*-*-*-*-*-*-*"; */
-static const char font[]            = "Cousine 8";
+static const char font[]            = "Droid Sans Mono 8";
 /*
 static const char normbordercolor[] = "#000000";
 static const char normbgcolor[]     = "#000000";
@@ -11,24 +11,34 @@ static const char selbordercolor[]  = "#000000";
 static const char selbgcolor[]      = "#000000";
 static const char selfgcolor[]      = "#ffffff";
 */
+
+/*
 static const char normbordercolor[] = "#93a1a1";
-static const char normbgcolor[]     = "#fdf6e3";
+static const char normbgcolor[]     = "#d6d6d6";
 static const char normfgcolor[]     = "#657b83";
 static const char selbordercolor[]  = "#002b36";
-static const char selbgcolor[]      = "#eee8d5";
-static const char selfgcolor[]      = "#586e75";
+static const char selfgcolor[]      = "#ededed";
+static const char selbgcolor[]      = "#587e75";
+*/
 
+static const char normbordercolor[] = "#93a1a1";
+static const char selbgcolor[]     = "#2b403b";
+static const char selfgcolor[]     = "#ededed";
+static const char selbordercolor[]  = "#002b36";
+static const char normfgcolor[]      = "#ededed";
+static const char normbgcolor[]      = "#587e75";
 
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 static const Bool statusmarkup      = True;
 static const unsigned int systrayspacing = 2;
+static const unsigned int gappx = 4;
 static const Bool showsystray       = True;
 
 /* tagging */
-static const char *tags[] = { "www", "emacs/vim", "tmux", "misc1", "misc2", "misc3", "music", "read", "skype" };
+static const char *tags[] = { "www", "emacs", "tmux", "robomongo", "misc", "misc", "read", "mail", "im" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
