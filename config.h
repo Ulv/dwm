@@ -3,7 +3,16 @@
 /* appearance */
 /* static const char font[]            = "-gohu-*-medium-*-*-*-14-*-*-*-*-*-*-*"; */
 static const char font[]            = "Droid Sans Mono 8";
+
+static const char normbordercolor[] = "#444444";
+static const char normbgcolor[]     = "#222222";
+static const char normfgcolor[]     = "#bbbbbb";
+static const char selbordercolor[]  = "#537485";
+static const char selbgcolor[]      = "#537485";
+static const char selfgcolor[]      = "#eeeeee";
+
 /*
+ * default colors
 static const char normbordercolor[] = "#000000";
 static const char normbgcolor[]     = "#000000";
 static const char normfgcolor[]     = "#dddddd";
@@ -12,7 +21,8 @@ static const char selbgcolor[]      = "#000000";
 static const char selfgcolor[]      = "#ffffff";
 */
 
-/*
+/**
+ * solarized light mod
 static const char normbordercolor[] = "#93a1a1";
 static const char normbgcolor[]     = "#d6d6d6";
 static const char normfgcolor[]     = "#657b83";
@@ -21,12 +31,25 @@ static const char selfgcolor[]      = "#ededed";
 static const char selbgcolor[]      = "#587e75";
 */
 
+/*
+ * nice scheme
 static const char normbordercolor[] = "#93a1a1";
 static const char selbgcolor[]     = "#2b403b";
 static const char selfgcolor[]     = "#ededed";
 static const char selbordercolor[]  = "#002b36";
 static const char normfgcolor[]      = "#ededed";
 static const char normbgcolor[]      = "#587e75";
+*/
+
+/*
+ * solarized dark
+static const char normbordercolor[] = "#002b36";
+static const char selbgcolor[]     = "#002b36";
+static const char selfgcolor[]     = "#93a1a1";
+static const char selbordercolor[]  = "#002b36";
+static const char normfgcolor[]      = "#586e75";
+static const char normbgcolor[]      = "#002b36";
+*/
 
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -34,15 +57,22 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 static const Bool statusmarkup      = True;
 static const unsigned int systrayspacing = 2;
-static const unsigned int gappx = 4;
+static const unsigned int gappx = 0;
 static const Bool showsystray       = True;
 
 /* tagging */
-static const char *tags[] = { "www", "emacs", "tmux", "robomongo", "misc", "misc", "read", "mail", "im" };
+static const char *tags[] = { "www", "ide", "tmux", "db", "misc", "misc", "read", "music", "im" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
+	/*{ "Gimp",     NULL,       NULL,       0,            True,        -1 }, */
+	{ "Firefox",     NULL,       NULL,       1,            False,        0 },
+	{ "jetbrains-phpstorm",     NULL,       NULL,       1 << 1,            False,        -1 },
+	{ "gvim",     NULL,       NULL,       1 << 1,            False,        -1 },
+	{ "audacious",     NULL,       NULL,       1 << 4,            False,        -1 },
+	{ "Meld",     NULL,       NULL,       1 << 2,            False,        -1 },
+	{ "robomongo",     NULL,       NULL,       1 << 3,            False,        -1 },
+	{ "Thunderbird",     NULL,       NULL,       1 << 8,            False,        -1 }
 	/*{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },*/
 };
 
@@ -53,9 +83,9 @@ static const Bool resizehints = False; /* True means respect size hints in tiled
 
 static const Layout layouts[] = {
 	/* symbol   arrange function */
-	{ "T",      tile },    /* first entry is default */
-	{ "F",      NULL },    /* no layout function means floating behavior */
-	{ "M",      monocle },
+	{ "[T]",      tile },    /* first entry is default */
+	{ "[F]",      NULL },    /* no layout function means floating behavior */
+	{ "[M]",      monocle },
 };
 
 /* key definitions */
@@ -73,12 +103,24 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "gnome-terminal", "-e", "tmux", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
+static const char *ffcmd[]  = { "firefox", NULL };
+static const char *tbcmd[]  = { "thunderbird", NULL };
+static const char *phpstormcmd[]  = { "phpstorm", NULL };
+static const char *audaciouscmd[]  = { "audacious", NULL };
+static const char *rebootcmd[]  = { "sudo", "reboot", NULL };
+static const char *poweroffcmd[]  = { "sudo", "poweroff", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
+	{ MODKEY,             XK_F1,      spawn,          {.v = ffcmd } },
+	{ MODKEY,             XK_F2,      spawn,          {.v = tbcmd } },
+	{ MODKEY,             XK_F3,      spawn,          {.v = phpstormcmd } },
+	{ MODKEY,             XK_F4,      spawn,          {.v = audaciouscmd } },
+	{ MODKEY|ShiftMask,             XK_F11,      spawn,          {.v = rebootcmd } },
+	{ MODKEY|ShiftMask,             XK_F12,      spawn,          {.v = poweroffcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
